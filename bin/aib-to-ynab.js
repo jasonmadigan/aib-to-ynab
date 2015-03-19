@@ -6,15 +6,22 @@ var _ = require('lodash');
 
 var argv = require('yargs')
   .usage('Usage: aib-to-ynab --input=Transaction_Export.csv --output=Transaction_Export_CONVERTED.csv [--map=map.json]')
-  .demand(['input', 'output'])
+  .demand(['input'])
+  .describe('output', 'Optional output file - if not specified, will output as Transaction_Export_CONVERTED.csv')
   .describe('map', 'Optional Payee and Category mapping file')
   .argv;
 
 var map = (argv.map) ? JSON.parse(fs.readFileSync(argv.map, 'utf8')) : null;
 
-function _match(description) {
-  if (!map) return description;
+if (!argv.output) {
+  argv.output = "Transaction_Export_CONVERTED.csv";
+}
 
+if (map) {
+  console.log('Using map file.');
+}
+
+function _match(description) {
   var value = null;
   var key = _.findKey(map, function(value, key) {
     return _.startsWith(description, key);
@@ -29,6 +36,8 @@ function _match(description) {
 }
 
 function mapCategory(description) {
+  if (!map) return description;
+
   var match = _match(description);
   if (!match) return description;
 
@@ -36,6 +45,8 @@ function mapCategory(description) {
 }
 
 function mapPayee(description) {
+  if (!map) return description;
+
   var match = _match(description);
   if (!match) return description;
 
