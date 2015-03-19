@@ -1,0 +1,16 @@
+{
+  "name": "aib-to-ynab",
+  "version": "1.0.0",
+  "description": "Convert AIB historical transactions (from personal accounts) into YNAB format. Supply a mapping file, and transactions can be mapped to categories and payees.",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "bin": {
+    "aib-to-ynab": "./bin/aib-to-ynab.js"
+  },
+  "dependencies": {
+    "fast-csv": "^0.6.0",
+    "lodash": "^3.5.0",
+    "yargs": "^3.5.4"
+  }
+}
