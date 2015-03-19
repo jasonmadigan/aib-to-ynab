@@ -1,6 +1,6 @@
 # AIB to YNAB
 
-AIB have recently started to support CSV exports of historical transactions for Personal Account holders. This tool lets you transform these CSVs into a format expected by YNAB.
+[AIB](https://personal.aib.ie/) have recently started to support CSV exports of historical transactions for Personal Account holders. This tool lets you transform these CSVs into a format expected by YNAB.
 
 ## Install
 
