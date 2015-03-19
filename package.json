@@ -1,6 +1,6 @@
 {
   "name": "aib-to-ynab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert AIB historical transactions (from personal accounts) into YNAB format. Supply a mapping file, and transactions can be mapped to categories and payees.",
   "scripts": {},
   "author": "",
